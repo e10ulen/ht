@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-const DateFormat = "2006/01/02 15"
+const DateFormat = "2006/01/02 15:04"
 
 func main() {
 	tm := time.Now()
@@ -24,7 +24,7 @@ func main() {
 		log.Print("Error...Add\n")
 	}
 	//  Commit Git
-	cmt, err := exec.Command("git", "commit", "-m", "'Commit :"+tm.Format(DateFormat)+"'").CombinedOutput()
+	cmt, err := exec.Command("git", "commit", "-m", "Commit :"+tm.Format(DateFormat)).CombinedOutput()
 	if err != nil {
 		log.Print("Error...Commit\n")
 	}
