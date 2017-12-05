@@ -12,7 +12,6 @@ const DateFormat = "2006/01/02 15:04"
 
 func main() {
 	tm := time.Now()
-	fmt.Print("Test")
 	dir, err := os.Getwd()
 	if err == nil {
 		fmt.Print(dir, "\n")
