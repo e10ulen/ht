@@ -25,9 +25,9 @@ func main() {
 	}
 	//  Commit Git
 	scr := bufio.NewScanner(os.Stdin)
-	fmt.Print("CommitMessage >")
+	fmt.Print("CommitMessage > ")
 	scr.Scan()
-	cmt, err := exec.Command("git", "commit", "-m", "Commit :"+tm.Format(DateFormat)+string(scr.Text())).CombinedOutput()
+	cmt, err := exec.Command("git", "commit", "-m", "Commit :"+tm.Format(DateFormat)+" "+string(scr.Text())).CombinedOutput()
 	if err != nil {
 		log.Print("Error...Commit\n")
 	}
