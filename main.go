@@ -6,6 +6,7 @@ import (
 	"os"
 	"os/exec"
 	"time"
+	"bufio"
 )
 
 const DateFormat = "2006/01/02 15:04"
@@ -23,7 +24,10 @@ func main() {
 		log.Print("Error...Add\n")
 	}
 	//  Commit Git
-	cmt, err := exec.Command("git", "commit", "-m", "Commit :"+tm.Format(DateFormat)).CombinedOutput()
+	scr := bufio.NewScanner(os.Stdin)
+	fmt.Print("CommitMessage >")
+	scr.Scan()
+	cmt, err := exec.Command("git", "commit", "-m", "Commit :"+tm.Format(DateFormat)+string(scr.Text())).CombinedOutput()
 	if err != nil {
 		log.Print("Error...Commit\n")
 	}
